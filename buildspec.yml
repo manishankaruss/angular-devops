@@ -18,7 +18,8 @@ phases:
       - npm run test:ci
   post_build:
     commands:
-      - aws s3 sync ./dist/angular-devops s3://bmodev --acl 'public-read' --delete
+      - aws s3 rm s3://<bmodev2> --recursive
+      - aws s3 cp dist/angular-devops/ s3://<bmodev2> --recursive
 
 artifacts:
   files:
